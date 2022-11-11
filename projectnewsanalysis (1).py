@@ -129,4 +129,8 @@ else:
 
 
 
-print(dataframeList_last.to_string())
+print(dataframeList_last)
+
+if(dataframeList_last != None){
+    print("dataframe is ok...")
+}
