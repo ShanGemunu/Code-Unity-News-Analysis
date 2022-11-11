@@ -131,6 +131,6 @@ else:
 
 print(dataframeList_last)
 
-if(dataframeList_last != None){
+if(dataframeList_last != None):
     print("dataframe is ok...")
-}
+
