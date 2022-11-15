@@ -13,7 +13,7 @@ Original file is located at
 import pandas as pd
 import investpy
 
-invest = investpy.news.economic_calendar(time_zone="GMT +5:30",from_date="09/10/2022",to_date="15/10/2022")
+invest = investpy.news.economic_calendar(time_zone="GMT +5:30",from_date="15/11/2022",to_date="20/11/2022")
 
 #USD Events       ,  note --- dataframe.iloc[:,3] -> all row, particular column    and   dataframe.iloc[3,4] -> 4th row, 5th column
 usdEvents = (invest[invest.iloc[:, 4] == "USD"]).reset_index()  # ---------- (01)    ,   this usdEvents is new dataframe, it is using usual indexs as 0,1,2,3,....
@@ -102,7 +102,7 @@ def generateTimeIntervals(list):    # generate time/time interval of those group
 
 
 
-dataframeList_last = None
+dataframeList_last = pd.DataFrame()
 
 if(len(usdEvents.index)!=0):
   dataframe_02 = removeLowImpacts()  # output of step 02
@@ -128,9 +128,8 @@ else:
   print("Nothing,,, code execution is stopped.")
 
 
-
+json = dataframeList_last.to_json()
 print(dataframeList_last)
 
-if(dataframeList_last != None):
-    print("dataframe is ok...")
+
 
